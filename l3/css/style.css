@@ -77,14 +77,21 @@ img {
     color: #2f2a2d;
 }
 
-.btn-cart:before {
-    content: "";
-    width: 200px;
+.flex {
+    display: flex;
+
+}
+
+#basket_block {
     min-height: 100px;
     background-color: white;
     position: absolute;
-    left: -210px;
-    top: 0;
+    right: 190px;
+    top: 29px;
     border-radius: 10px;
     border: solid 1px #000;
+}
+
+.basket_block-none {
+    display: none;
 }

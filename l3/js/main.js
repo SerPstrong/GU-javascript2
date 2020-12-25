@@ -58,6 +58,41 @@ class ProductsList {
     }
 }
 
+class Basket {
+    // let basket111 = document.querySelector(".btn-cart");
+
+    constructor(basket = '#basket_block') {
+        this.basket = basket;
+        this.goods = [];//массив товаров
+        this.allProducts = [];//массив объектов
+        this._getProductsBasket()
+            .then(data => { //data - объект js
+                this.goods = [...data];
+                this.render()
+            });
+    }
+
+    _getProductsBasket() {
+        return fetch(`${API}/catalogData.json`)
+            .then(result => result.json())
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
+    render() {
+        const block = document.querySelector(this.basket);
+        for (let product of this.goods) {
+            const productObj = new ProductItem(product);
+            this.allProducts.push(productObj);
+            block.insertAdjacentHTML('beforeend', productObj.render());
+        }
+
+    }
+
+
+}
+
 class ProductItem {
     constructor(product, img = 'https://placehold.it/200x150') {
         this.title = product.product_name;
@@ -78,24 +113,27 @@ class ProductItem {
     }
 }
 
-class Basket {
-    // let basket111 = document.querySelector(".btn-cart");
+// const btnBasket = document.querySelector(".basket");
+// btnBasket.addEventListener("click", btnBasketFunc);
+//
+// btnBasketFunc = () => {
+//     btnBasket.add("basket_block-none");
+// };
 
-    constructor(basket = '.btn-cart') {
-        this.container = container;
-        this.goods = [];//массив товаров
-        this.allProducts = [];//массив объектов
-        this._getProducts()
-            .then(data => { //data - объект js
-                this.goods = [...data];
-                this.render()
-            });
-    }
+const btnBasketBlock = document.querySelector("#basket_block");
+const btnBasket = document.querySelector(".btn-cart");
+btnBasket.addEventListener('click', btnBasketFunc);
 
-    render() {
-        return `<div>11111111</div>`
+function btnBasketFunc() {
+    if (!btnBasketBlock.classList.contains("basket_block-none")) {
+        btnBasketBlock.classList.add("basket_block-none");
+        console.log("Добавлен!")
+    } else {
+        btnBasketBlock.classList.remove("basket_block-none");
+        console.log("Удален!")
     }
 }
 
 let list = new ProductsList();
+let list2 = new Basket();
 
