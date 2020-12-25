@@ -24,6 +24,7 @@ button{
     border-radius: 5px;
     transition: all ease-in-out .4s;
     cursor: pointer;
+    position: relative;
 }
 .btn-cart:hover{
     background-color: transparent;
@@ -80,8 +81,10 @@ img {
     content: "";
     width: 200px;
     min-height: 100px;
-    background-color: aqua;
+    background-color: white;
     position: absolute;
-    left: 0;
+    left: -210px;
     top: 0;
+    border-radius: 10px;
+    border: solid 1px #000;
 }
