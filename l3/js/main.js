@@ -78,5 +78,24 @@ class ProductItem {
     }
 }
 
+class Basket {
+    // let basket111 = document.querySelector(".btn-cart");
+
+    constructor(basket = '.btn-cart') {
+        this.container = container;
+        this.goods = [];//массив товаров
+        this.allProducts = [];//массив объектов
+        this._getProducts()
+            .then(data => { //data - объект js
+                this.goods = [...data];
+                this.render()
+            });
+    }
+
+    render() {
+        return `<div>11111111</div>`
+    }
+}
+
 let list = new ProductsList();
 
