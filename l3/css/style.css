@@ -24,6 +24,7 @@ button{
     border-radius: 5px;
     transition: all ease-in-out .4s;
     cursor: pointer;
+    position: relative;
 }
 .btn-cart:hover{
     background-color: transparent;
@@ -74,4 +75,23 @@ img {
     background-color: transparent;
     border-color: #2f2a2d;
     color: #2f2a2d;
+}
+
+.flex {
+    display: flex;
+
+}
+
+#basket_block {
+    min-height: 100px;
+    background-color: white;
+    position: absolute;
+    right: 190px;
+    top: 29px;
+    border-radius: 10px;
+    border: solid 1px #000;
+}
+
+.basket_block-none {
+    display: none;
 }
